@@ -46,3 +46,23 @@ int alternate(string s)
     return vec.empty() ? 0 : *std::max_element(vec.begin(),vec.end());
 }
 
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string l_temp;
+    getline(cin, l_temp);
+
+    int l = stoi(ltrim(rtrim(l_temp)));
+
+    string s;
+    getline(cin, s);
+
+    int result = alternate(s);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
