@@ -88,7 +88,18 @@ string ltrim2(const string &str) {
     return s;
 }
 
+
 string rtrim(const string &str) {
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), [](unsigned char ch) { return !isspace(ch); }).base(), s.end()
+    );
+
+    return s;
+}
+
+string rtrim2(const string &str) {
     string s(str);
 
     s.erase(
