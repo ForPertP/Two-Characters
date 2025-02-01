@@ -12,6 +12,42 @@ string rtrim(const string &);
  * The function accepts STRING s as parameter.
  */
 
+int alternate(string s)
+{
+    unordered_set<char> unique_chars(s.begin(), s.end());
+    vector<char> chars(unique_chars.begin(), unique_chars.end());
+    int max_length = 0;
+
+    for (size_t i = 0; i < chars.size(); ++i)
+    {
+        for (size_t j = i + 1; j < chars.size(); ++j)
+        {
+            char first = chars[i], second = chars[j];
+            int length = 0;
+            char last = 0;
+            
+            for (char c : s)
+            {
+                if (c == first || c == second)
+                {
+                    if (c == last)
+                    {
+                        length = 0;
+                        break;
+                    }
+                    last = c;
+                    ++length;
+                }
+            }
+
+            max_length = max(max_length, length);
+        }
+    }
+
+    return max_length;
+}
+
+
 int alternate2(string s)
 {
     vector<int> vec;
