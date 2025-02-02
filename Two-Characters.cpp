@@ -52,7 +52,7 @@ int alternate2(string s)
 {
     vector<int> vec;
     
-    for (int i = 0; i < s.size() - 1; ++i)
+    for (int i = 0; i < s.size()-1; ++i)
     {
         for (int j = i + 1; j < s.size(); ++j)
         {
@@ -66,7 +66,7 @@ int alternate2(string s)
             }
             
             bool check = true;
-            for (int k = 0; k < str.size() - 1; ++k)
+            for (int k = 0; k < str.size()-1; ++k)
             {
                 if (str[k] == str[k+1])
                 {
