@@ -18,7 +18,7 @@ int alternate(string s)
     vector<char> chars(unique_chars.begin(), unique_chars.end());
     int max_length = 0;
 
-    for (size_t i = 0; i < chars.size() - 1; ++i)
+    for (size_t i = 0; i < chars.size()-1; ++i)
     {
         for (size_t j = i + 1; j < chars.size(); ++j)
         {
