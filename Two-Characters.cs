@@ -22,6 +22,38 @@ class Result
      * The function accepts STRING s as parameter.
      */
 
+    public static int alternate2(string s)
+    {
+        List<int> vec = new List<int>();
+
+        for (int i = 0; i < s.Length - 1; ++i)
+        {
+            for (int j = i + 1; j < s.Length; ++j)
+            {
+                string str = "";
+                for (int k = 0; k < s.Length; ++k)
+                {
+                    if (s[k] == s[i] || s[k] == s[j])
+                        str += s[k];
+                }
+
+                bool check = true;
+                for (int k = 0; k < str.Length - 1; ++k)
+                {
+                    if (str[k] == str[k + 1])
+                    {
+                        check = false;
+                        break;
+                    }
+                }
+
+                if (check) vec.Add(str.Length);
+            }
+        }
+
+        return vec.Count == 0 ? 0 : vec.Max();
+    }
+
 }
 
 class Solution
