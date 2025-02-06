@@ -22,6 +22,46 @@ class Result
      * The function accepts STRING s as parameter.
      */
 
+    public static int alternate(string s)
+    {
+        HashSet<char> uniqueChars = new HashSet<char>(s);
+        List<char> chars = new List<char>(uniqueChars);
+        int maxLength = 0;
+
+        for (int i = 0; i < chars.Count-1; ++i)
+        {
+            for (int j = i + 1; j < chars.Count; ++j)
+            {
+                char first = chars[i], second = chars[j];
+                int length = 0;
+                char last = '\0';
+                bool isValid = true;
+
+                foreach (char c in s)
+                {
+                    if (c == first || c == second)
+                    {
+                        if (c == last)
+                        {
+                            isValid = false;
+                            break;
+                        }
+                        last = c;
+                        ++length;
+                    }
+                }
+
+                if (isValid)
+                {
+                    maxLength = Math.Max(maxLength, length);
+                }
+            }
+        }
+        
+        return maxLength;
+    }
+
+
     public static int alternate2(string s)
     {
         List<int> vec = new List<int>();
