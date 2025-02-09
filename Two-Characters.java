@@ -18,9 +18,30 @@ class Result {
      * The function is expected to return an INTEGER.
      * The function accepts STRING s as parameter.
      */
-
+    
     public static int alternate2(String s) {
         List<Integer> vec = new ArrayList<>();
+
+        for (int i = 0; i < s.length() - 1; ++i) {
+            for (int j = i + 1; j < s.length(); ++j) {
+                StringBuilder str = new StringBuilder();
+                for (int k = 0; k < s.length(); ++k) {
+                    if (s.charAt(k) == s.charAt(i) || s.charAt(k) == s.charAt(j)) {
+                        str.append(s.charAt(k));
+                    }
+                }
+
+                boolean check = true;
+                for (int k = 0; k < str.length() - 1; ++k) {
+                    if (str.charAt(k) == str.charAt(k + 1)) {
+                        check = false;
+                        break;
+                    }
+                }
+
+                if (check) vec.add(str.length());
+            }
+        }
 
         return vec.isEmpty() ? 0 : Collections.max(vec);
     }    
