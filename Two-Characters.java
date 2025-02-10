@@ -18,6 +18,16 @@ class Result {
      * The function is expected to return an INTEGER.
      * The function accepts STRING s as parameter.
      */
+
+    public static int alternate(String s) {
+        Set<Character> uniqueChars = new HashSet<>();
+        for (char c : s.toCharArray()) uniqueChars.add(c);
+        List<Character> chars = new ArrayList<>(uniqueChars);
+        int maxLength = 0;
+
+        return maxLength;
+    }
+    
     
     public static int alternate2(String s) {
         List<Integer> vec = new ArrayList<>();
