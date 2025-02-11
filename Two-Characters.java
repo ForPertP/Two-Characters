@@ -25,6 +25,29 @@ class Result {
         List<Character> chars = new ArrayList<>(uniqueChars);
         int maxLength = 0;
 
+        for (int i = 0; i < chars.size(); ++i) {
+            for (int j = i + 1; j < chars.size(); ++j) {
+                char first = chars.get(i), second = chars.get(j);
+                int length = 0;
+                char last = '\0';
+                boolean isValid = true;
+
+                for (char c : s.toCharArray()) {
+                    if (c == first || c == second) {
+                        if (c == last) {
+                            isValid = false;
+                            break;
+                        }
+                        last = c;
+                        ++length;
+                    }
+                }
+
+                if (isValid) {
+                    maxLength = Math.max(maxLength, length);
+                }
+            }
+        }
         return maxLength;
     }
     
